@@ -20,7 +20,7 @@ struct ContentView: View {
         VStack {
             // Celsius
             HStack {
-                Text("Celsius")
+                Text("Celsius ℃")
                     .font(.title2.bold())
                 
                 Spacer()
@@ -37,6 +37,22 @@ struct ContentView: View {
                    maximumValueLabel: {
                 Text("200")
             })
+            
+                .padding()
+            Divider()
+            
+            // Pressure
+            HStack {
+                Text("Atmospheric Pressure")
+                    .font(.title2.bold())
+                
+                Spacer()
+            }
+            
+            Text("\(String(format: "%.1f", atmosphericPressure)) kPa")
+                .font(.largeTitle.bold())
+                .padding()
+            
         }
         .padding()
     }
