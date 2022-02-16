@@ -13,14 +13,27 @@ struct ContentView: View {
     
     // MARK: Computed Properties
     var atmosphericPressure: Double {
-        return 5 * temperatureGiven - 100
+        return 5 * temperatureGiven - 400
+    }
+    
+    var feedback: String {
+        switch atmosphericPressure {
+            case ..<100:
+                return "The water is boiling above sea level"
+            case 100:
+                return "The water is boiling at sea level"
+            case 100...:
+                return "The water is boiling below sea level"
+            default:
+                return "The water is boiling at sea level"
+        }
     }
     
     var body: some View {
         VStack {
             // Celsius
             HStack {
-                Text("Celsius ℃")
+                Text("Boiling Temperature ℃")
                     .font(.title2.bold())
                 
                 Spacer()
@@ -52,6 +65,8 @@ struct ContentView: View {
             Text("\(String(format: "%.1f", atmosphericPressure)) kPa")
                 .font(.largeTitle.bold())
                 .padding()
+            
+            Text(feedback)
             
         }
         .padding()
