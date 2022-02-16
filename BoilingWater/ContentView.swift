@@ -33,7 +33,13 @@ struct ContentView: View {
         VStack {
             // Celsius
             HStack {
-                Text("Boiling Temperature ℃")
+                Text("Boiling Temperature")
+                    .font(.title2.bold())
+                
+                Spacer()
+                
+                // Output: Temperature
+                Text("\(String(format: "%.1f", temperatureGiven)) °C")
                     .font(.title2.bold())
                 
                 Spacer()
